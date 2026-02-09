@@ -184,6 +184,7 @@ public class SinglyLinkedList<E> implements List<E> {
             currentNode = currentNode.next;
         }
 
+        // 문자열에 쉼표가 하나라도 존재하는 경우에만 마지막 쉼표 제거
         if (sb.lastIndexOf(",") != -1) {
             // replace(start, end, str) 메서드
             // start 인덱스부터 end 인덱스 - 1 까지의 문자열을 str로 바꾼다.
