@@ -1,6 +1,7 @@
 package com.beyond.stack;
 
 import com.beyond.stack.practice.ArrayStack;
+import com.beyond.stack.practice.SinglyLinkedStack;
 import com.beyond.stack.practice.Stack;
 
 public class Application {
@@ -57,7 +58,9 @@ public class Application {
 
         // ---------------------------------------------------------------------
         // ArrayStack 구현 및 테스트
-        Stack<String> stack = new ArrayStack<>(5);
+        // Stack<String> stack = new ArrayStack<>(5);
+        // LinkedStack 구현 및 테스트
+        Stack<String> stack = new SinglyLinkedStack<>();
 
         System.out.println(stack);
         System.out.println(stack.size());
