@@ -112,6 +112,7 @@ public class SinglyLinkedList<E> implements List<E> {
             lastPrevNode.next.data = null;
             lastPrevNode.next.next = null;
 
+            // 마지막 노드 이전 노드의 next null 처리
             lastPrevNode.next = null;
 
             size --;
@@ -120,12 +121,54 @@ public class SinglyLinkedList<E> implements List<E> {
 
     @Override
     public void remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        } else if (index == 0) {
+            removeFirst();
+        } else if (index == (size -1)) {
+            removeLast();
+        } else {
+            Node<E> prevNode = search(index - 1);
 
+            // 삭제할 대상 노드
+            // Node<E> targetNode = search(index);
+            Node<E> targetNode = prevNode.next;
+
+            prevNode.next = targetNode.next;
+            targetNode.data = null;
+            targetNode.next = null;
+
+            size --;
+        }
     }
 
     @Override
     public void remove(E element) {
+        Node<E> currentNode = head;
 
+        // null -> 아무런 작동 안함
+        if (currentNode != null) {
+            if (currentNode.data.equals(element)) {
+                removeFirst();
+            } else {
+                for (int i = 0; i < size - 1; i++) {
+                    if (currentNode.next.data.equals(element)) {
+                        Node<E> targetNode = currentNode.next;
+
+                        currentNode.next = targetNode.next;
+                        targetNode.data = null;
+                        targetNode.next = null;
+
+                        size --;
+
+                        // 먼저 찾은 노드만 제거
+                        break;
+                    }
+                }
+
+                currentNode = currentNode.next;
+            }
+        }
     }
 
     @Override

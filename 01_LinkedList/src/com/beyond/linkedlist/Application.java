@@ -3,6 +3,8 @@ package com.beyond.linkedlist;
 import com.beyond.linkedlist.practice.List;
 import com.beyond.linkedlist.practice.SinglyLinkedList;
 
+import java.util.LinkedList;
+
 public class Application {
     public static void main(String[] args) {
         System.out.println("Application 실행 중..");
@@ -118,5 +120,19 @@ public class Application {
         System.out.println();
         // [사과, 포도, 복숭아, 키위]
         // 4
+
+        list.removeLast();
+        System.out.println(list);
+        System.out.println(list.size());
+        System.out.println();
+        // [사과, 포도, 복숭아]
+        // 3
+
+        // list.remove(1);
+        list.remove("포도");
+        System.out.println(list);
+        System.out.println(list.size());
+        // [사과, 복숭아]
+        // 2
     }
 }
