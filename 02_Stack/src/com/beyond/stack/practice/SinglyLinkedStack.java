@@ -32,17 +32,47 @@ public class SinglyLinkedStack<E> implements Stack<E> {
 
     @Override
     public E pop() {
-        return null;
+        if (isEmpty()) {
+            throw new RuntimeException("스택이 비어 있습니다.");
+        }
+
+        Node<E> tempNode = top;
+        E element = tempNode.data;
+
+        top = tempNode.next;
+        tempNode.data = null;
+        tempNode.next = null;
+
+        size --;
+
+        return element;
     }
 
     @Override
     public boolean contains(E element) {
-        return false;
+        boolean result = false;
+
+        Node<E> currentNode = top;
+
+        while (currentNode != null) {
+            if (currentNode.data.equals(element)) {
+                result = true;
+                break;
+            }
+
+            currentNode = currentNode.next;
+        }
+
+        return result;
     }
 
     @Override
     public E peek() {
-        return null;
+        if (isEmpty()) {
+            throw new RuntimeException("스택이 비어 있습니다.");
+        }
+
+        return top.data;
     }
 
     private static class Node<E> {
