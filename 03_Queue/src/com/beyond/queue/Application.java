@@ -1,6 +1,7 @@
 package com.beyond.queue;
 
 import com.beyond.queue.practice.ArrayQueue;
+import com.beyond.queue.practice.LinkedQueue;
 import com.beyond.queue.practice.Queue;
 
 public class Application {
@@ -58,7 +59,10 @@ public class Application {
 
         // ------------------------------------------------------
         // ArrayQueue 구현 및 테스트
-        Queue<String> queue = new ArrayQueue<>(5);
+        // Queue<String> queue = new ArrayQueue<>(5);
+
+        // LinkedQueue 구현 및 테스트
+        Queue<String> queue = new LinkedQueue<>();
 
         // enqueue(), dequeue() 메서드 구현
         queue.enqueue("딸기");
