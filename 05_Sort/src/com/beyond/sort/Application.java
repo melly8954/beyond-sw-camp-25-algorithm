@@ -24,7 +24,6 @@ public class Application {
         // 삽입 정렬
         // 삽입 정렬의 최대 시간 복잡도는 O(n^2)
         int[] numbers = {3, 1, 5, 4, 9, 2};
-
         System.out.println(Arrays.toString(numbers));
 
         ArraySort.insertionSort(numbers);
@@ -36,8 +35,7 @@ public class Application {
         // 버블 정렬
         // 버블 정렬의 최대 시간 복잡도는 O(n^2)
         numbers = new int[] {3, 1, 5, 4, 9, 2};
-
-        System.out.println(numbers);
+        System.out.println(Arrays.toString(numbers));
 
         ArraySort.bubbleSort(numbers);
 
@@ -46,7 +44,13 @@ public class Application {
 
         // --------------------------------------------------
         // 병합 정렬
-        // 버블 정렬의 최대 시간 복잡도는 O(n^2)
-        
+        // 병합 정렬의 최대 시간 복잡도는 O(n log n)
+        numbers = new int[] {3, 1, 5, 4, 9, 2};
+        System.out.println(Arrays.toString(numbers));
+
+        ArraySort.mergeSort(numbers, 0, numbers.length - 1);
+
+        System.out.println(Arrays.toString(numbers));
+        System.out.println();
     }
 }
