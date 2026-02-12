@@ -52,5 +52,16 @@ public class Application {
 
         System.out.println(Arrays.toString(numbers));
         System.out.println();
+
+        // --------------------------------------------------
+        // 퀵 정렬
+        // 퀵 정렬의 최대 시간 복잡도는 O(n log n)
+        numbers = new int[] {3, 1, 5, 2, 9, 4};
+        System.out.println(Arrays.toString(numbers));
+
+        ArraySort.quickSort(numbers, 0, numbers.length - 1);
+
+        System.out.println(Arrays.toString(numbers));
+        System.out.println();
     }
 }

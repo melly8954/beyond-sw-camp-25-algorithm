@@ -1,6 +1,7 @@
 package com.beyond.sort.practice;
 
 public class ArraySort {
+    // 삽입 정렬
     public static void insertionSort(int[] numbers) {
         for (int i = 1; i < numbers.length; i++) {
             int key = numbers[i];
@@ -15,6 +16,7 @@ public class ArraySort {
         }
     }
 
+    // 버블 정렬
     public static void bubbleSort(int[] numbers) {
         for (int i = 0; i < numbers.length - 1; i++) {
             for (int j = 0; j < numbers.length - 1 - i; j++) {
@@ -28,7 +30,7 @@ public class ArraySort {
         }
     }
 
-    // 재귀 메서드
+    // 병합 정렬 (재귀 메서드)
     // 작업 중에 자기 자신을 호출하는 것을 재귀 호출이라 하고, 재귀 호출을 하는 메서드를 재귀 메서드라고 한다.
     public static void mergeSort(int[] numbers, int left, int right) {
         // 분할할 부분이 남아 있는 경우
@@ -83,5 +85,47 @@ public class ArraySort {
         for (k = 0; k < temp.length; k++) {
             numbers[left + k] = temp[k];
         }
+    }
+
+    // 퀵 정렬
+    public static void quickSort(int[] numbers, int left, int right) {
+        // 분할할 부분이 남아 있는 경우
+        if (left < right) {
+            // pivot을 기준으로 배열을 분할하고 pivot의 인덱스를 반환
+            int pivotIndex = partition(numbers, left, right);
+
+            // pivot을 기준으로 왼쪽 부분 배열 정렬
+            quickSort(numbers, left, pivotIndex - 1);
+
+            // pivot을 기준으로 오른쪽 부분 배열 정렬
+            quickSort(numbers, pivotIndex + 1, right);
+        }
+    }
+
+    private static int partition(int[] numbers, int left, int right) {
+        // 배열의 마지막 요소를 pivot으로 지정
+        int pivot = numbers[right];
+
+        // pivot보다 작은 값을 가지는 요소들의 시작 인덱스
+        int i = left - 1;
+
+        int temp;
+
+        // 배열을 탐색하면서 pivot보다 작은 요소를 왼쪽으로 이동
+        for (int j = left; j < right; j++) {
+            if (numbers[j] < pivot) {
+                temp = numbers[++i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
+            }
+        }
+
+        // pivot을 적절한 위치로 이동
+        temp = numbers[i+1];
+        numbers[i+1] = numbers[right];
+        numbers[right] = temp;
+
+        // pivot의 인덱스를 반환
+        return i + 1;
     }
 }
