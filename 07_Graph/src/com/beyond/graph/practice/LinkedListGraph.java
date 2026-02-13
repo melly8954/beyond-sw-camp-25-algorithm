@@ -2,6 +2,7 @@ package com.beyond.graph.practice;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class LinkedListGraph {
     // 꼭지점의 개수
@@ -33,6 +34,46 @@ public class LinkedListGraph {
                 vertex.remove(edge);
 
                 break;
+            }
+        }
+    }
+
+    // 재귀 호출로 구현 (스텍으로 구현 가능함)
+    public void depthFirstSearch(int vertex) {
+        boolean[] visited = new boolean[this.numOfVertices];
+
+        depthFirstSearch(vertex, visited);
+    }
+
+    private void depthFirstSearch(int vertex, boolean[] visited) {
+        System.out.print(vertex + " ");
+
+        visited[vertex] = true;
+
+        for (Edge edge : this.vertices.get(vertex)) {
+            if (!visited[edge.vertex]) {
+                depthFirstSearch(edge.vertex, visited);
+            }
+        }
+    }
+
+    public void BreadthFirstSearch(int vertex) {
+        boolean[] visited = new boolean[this.numOfVertices];
+        Queue<Integer> queue = new LinkedList<>();
+
+        queue.add(vertex);
+
+        while (!queue.isEmpty()) {
+            vertex = queue.poll();
+
+            System.out.print(vertex + " ");
+
+            visited[vertex] = true;
+
+            for (Edge edge : this.vertices.get(vertex)) {
+                if (!visited[edge.vertex]) {
+                    queue.add(edge.vertex);
+                }
             }
         }
     }

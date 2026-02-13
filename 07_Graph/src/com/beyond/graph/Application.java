@@ -34,16 +34,33 @@ public class Application {
         LinkedListGraph linkedListGraph = new LinkedListGraph(4);
 
         // addEdge() 메서드 구현
-        linkedListGraph.addEdge(0, 1, 30);
-        linkedListGraph.addEdge(0, 2, 20);
-        linkedListGraph.addEdge(1, 2, 40);
-        linkedListGraph.addEdge(2, 3, 50);
+        // linkedListGraph.addEdge(0, 1, 30);
+        // linkedListGraph.addEdge(0, 2, 20);
+        // linkedListGraph.addEdge(1, 2, 40);
+        // linkedListGraph.addEdge(2, 3, 50);
 
         // removeEdge() 메서드 구현
-        linkedListGraph.removeEdge(0, 1);
-        linkedListGraph.removeEdge(0, 2);
+        // linkedListGraph.removeEdge(0, 1);
+        // linkedListGraph.removeEdge(0, 2);
 
+        // System.out.println(linkedListGraph);
+
+        // 그래프 탐색
+        linkedListGraph.addEdge(0, 1, 30);
+        linkedListGraph.addEdge(0, 2, 40);
+        linkedListGraph.addEdge(1, 2, 50);
+        linkedListGraph.addEdge(2, 0, 60);
+        linkedListGraph.addEdge(2, 3, 70);
+        linkedListGraph.addEdge(3, 3, 80);
 
         System.out.println(linkedListGraph);
+        System.out.println();
+
+        // 깊이 우선 탐색 (시작 꼭짓점은 2)
+        linkedListGraph.depthFirstSearch(2);
+        System.out.println();
+
+        // 너비 우선 탐색 (시작 꼭짓점은 2)
+        linkedListGraph.BreadthFirstSearch(2);
     }
 }
